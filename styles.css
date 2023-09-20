@@ -1,14 +1,12 @@
 body {
     margin: 0;
     background: pink;
-}
-
-html, body, .container {
     height: 100%;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
