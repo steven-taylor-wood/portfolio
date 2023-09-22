@@ -1,6 +1,5 @@
 body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-weight: bold;
     text-decoration: underline;
     background: beige;
 }
@@ -13,6 +12,17 @@ body {
     text-align: left;
 }
 
-.txt:hover {
+.links {
+    font-size: 15px;
+    font-size: 1.75vw;
+}
+
+.title {
+    font-size: 30px;
+    font-size: 3.5vw;
+    font-weight: bold;
+}
+
+.title:hover {
     content: ">>";
 }
