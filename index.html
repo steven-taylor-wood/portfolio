@@ -1,19 +1,80 @@
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steven Taylor-Wood | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container"> 
-        <div class="title">
-            <p>steven taylor-wood</p>
-        </div>
-        <span class="links">
-            <a href="/portfolio.html"><p> creative portfolio</p></a>
-            <a href="/contact.html"><p> contact</p></a>
-        </span>
-    </div>
+  <div class="noise"></div>
+
+  <header>
+    <div class="logo">STW</div>
+    <nav>
+      <a href="#projects">projects</a>
+      <a href="#about">about</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">creative technology / sound / systems</p>
+      <h1>Steven<br>Taylor-Wood</h1>
+      <p class="intro">
+        Portfolio of university projects exploring electronic music, machine learning,
+        generative systems, audiovisual interaction and experimental interfaces.
+      </p>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>selected projects</h2>
+
+      <article class="project-card">
+        <span>01</span>
+        <h3>Markov Beat</h3>
+        <p>
+          A real-time MIDI composition system using Markov chains to generate rhythmic
+          and melodic material, built in Max/MSP.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <span>02</span>
+        <h3>Uncanny Mirror</h3>
+        <p>
+          An interactive audiovisual installation using machine learning and image
+          translation to distort the viewer’s reflection.
+        </p>
+      </article>
+
+      <article class="project-card">
+        <span>03</span>
+        <h3>JUCE DJ</h3>
+        <p>
+          A C++/JUCE audio application exploring DJ playback, interface design and
+          digital audio processing.
+        </p>
+      </article>
+    </section>
+
+    <section id="about" class="about">
+      <h2>about</h2>
+      <p>
+        I studied Electronic Music, Computing & Technology at Goldsmiths, combining
+        sound design, programming, creative coding and machine learning. My work sits
+        somewhere between club culture, experimental interfaces and generative systems.
+      </p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>contact</h2>
+      <a href="mailto:steetaylorwood@gmail.com">steetaylorwood@gmail.com</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
