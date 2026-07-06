@@ -415,32 +415,24 @@ h1 {
   content: "";
 
   position: absolute;
+
   inset: 0;
 
-  background-image:
-    linear-gradient(var(--overlay), var(--overlay)),
-    var(--preview-image);
+  background: transparent;
 
-  background-size: cover;
-  background-position: center;
-
-  opacity: 0;
-
-  filter: grayscale(1) contrast(1.15);
+  backdrop-filter: grayscale(1);
 
   transition:
-    opacity 0.35s ease,
-    transform 0.8s ease;
-
-  transform: scale(1.03);
+    background 0.4s ease;
 
   z-index: 0;
 }
 
+
 .project-card:hover::before {
-  opacity: 1;
-  transform: scale(1);
+  background: var(--overlay);
 }
+
 
 /* =========================================
    KEEP PROJECT TEXT ABOVE IMAGE
