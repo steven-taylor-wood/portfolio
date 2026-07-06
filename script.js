@@ -7,24 +7,31 @@ document.addEventListener("mousemove", (e) => {
   title.style.transform = `translate(${x}px, ${y}px)`;
 });
 
+
 const projectCards = document.querySelectorAll(".project-card");
-const preview = document.querySelector(".project-preview");
-const previewImage = document.querySelector(".project-preview img");
+
 
 projectCards.forEach((card) => {
+
+  const imageSrc = card.getAttribute("data-preview");
+
+
   card.addEventListener("mouseenter", () => {
-    const imageSrc = card.getAttribute("data-preview");
 
-    previewImage.src = imageSrc;
-    preview.classList.add("visible");
+    card.style.backgroundImage =
+      `linear-gradient(
+        rgba(5, 5, 5, 0.25),
+        rgba(5, 5, 5, 0.25)
+      ),
+      url("${imageSrc}")`;
+
   });
 
-  card.addEventListener("mousemove", (e) => {
-    preview.style.left = `${e.clientX}px`;
-    preview.style.top = `${e.clientY}px`;
-  });
 
   card.addEventListener("mouseleave", () => {
-    preview.classList.remove("visible");
+
+    card.style.backgroundImage = "none";
+
   });
+
 });

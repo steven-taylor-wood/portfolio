@@ -281,7 +281,6 @@ h1 {
 
 .project-card {
   color: inherit;
-
   text-decoration: none;
 
   border-top: 1px solid #292929;
@@ -302,10 +301,14 @@ h1 {
 
   position: relative;
 
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+
   transition:
-    background 0.35s ease,
-    color 0.35s ease,
-    padding 0.35s ease;
+    padding 0.4s ease,
+    background-position 0.8s ease;
 }
 
 
@@ -314,14 +317,45 @@ h1 {
 }
 
 
+/* DARK OVERLAY */
+
+.project-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(5, 5, 5, 0);
+
+  backdrop-filter: grayscale(1);
+
+  transition:
+    background 0.4s ease;
+
+  z-index: 0;
+}
+
+
+.project-card:hover::before {
+  background: rgba(5, 5, 5, 0.55);
+}
+
+
+/* KEEP TEXT ABOVE IMAGE */
+
+.project-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* HOVER MOVEMENT */
+
 .project-card:hover {
-  background: #f0f0f0;
-
-  color: #050505;
-
   padding-left: 24px;
-
   padding-right: 24px;
+
+  background-position: center 45%;
 }
 
 
@@ -333,6 +367,8 @@ h1 {
   letter-spacing: 0.1em;
 
   padding-top: 10px;
+
+  transition: color 0.3s ease;
 }
 
 
@@ -360,7 +396,7 @@ h1 {
 
   margin-top: 16px;
 
-  transition: color 0.35s ease;
+  transition: color 0.3s ease;
 }
 
 
@@ -371,7 +407,7 @@ h1 {
 
   font-size: 0.9rem;
 
-  transition: color 0.35s ease;
+  transition: color 0.3s ease;
 }
 
 
@@ -388,20 +424,23 @@ h1 {
 }
 
 
-.project-card:hover .project-arrow {
-  opacity: 1;
+/* HOVER TEXT */
 
-  transform: translate(0, 0);
+.project-card:hover .project-number,
+.project-card:hover .meta {
+  color: #bbb;
 }
 
 
 .project-card:hover .project-description {
-  color: #222;
+  color: #eee;
 }
 
 
-.project-card:hover .meta {
-  color: #555;
+.project-card:hover .project-arrow {
+  opacity: 1;
+
+  transform: translate(0, 0);
 }
 
 
