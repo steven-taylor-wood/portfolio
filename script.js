@@ -19,6 +19,11 @@ projectCards.forEach((card) => {
     preview.classList.add("visible");
   });
 
+  card.addEventListener("mousemove", (e) => {
+    preview.style.left = `${e.clientX}px`;
+    preview.style.top = `${e.clientY}px`;
+  });
+
   card.addEventListener("mouseleave", () => {
     preview.classList.remove("visible");
   });
