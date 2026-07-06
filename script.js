@@ -25,23 +25,3 @@ themeToggle.addEventListener("click", () => {
 
   localStorage.setItem("theme", isLight ? "light" : "dark");
 });
-
-const projectCards = document.querySelectorAll(".project-card");
-
-projectCards.forEach((card) => {
-  const imageSrc = card.getAttribute("data-preview");
-
-  card.addEventListener("mouseenter", () => {
-    card.style.backgroundImage = `
-      linear-gradient(
-        var(--overlay),
-        var(--overlay)
-      ),
-      url("${imageSrc}")
-    `;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.backgroundImage = "none";
-  });
-});
