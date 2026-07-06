@@ -1,80 +1,280 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Steven Taylor-Wood | Portfolio</title>
+
+  <title>Steven Taylor-Wood | Creative Technologist</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Steven Taylor-Wood — creative technology, sound, machine learning and generative systems."
+  />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+
+  <!-- Texture overlay -->
   <div class="noise"></div>
 
-  <header>
-    <div class="logo">STW</div>
+  <!-- Header -->
+  <header class="site-header">
+
+    <a href="#top" class="logo">
+      STW
+    </a>
+
     <nav>
       <a href="#projects">projects</a>
       <a href="#about">about</a>
       <a href="#contact">contact</a>
     </nav>
+
   </header>
 
-  <main>
+
+  <main id="top">
+
+    <!-- HERO -->
     <section class="hero">
-      <p class="eyebrow">creative technology / sound / systems</p>
-      <h1>Steven<br>Taylor-Wood</h1>
-      <p class="intro">
-        Portfolio of university projects exploring electronic music, machine learning,
-        generative systems, audiovisual interaction and experimental interfaces.
+
+      <p class="eyebrow">
+        creative technology / sound / systems
       </p>
+
+      <h1>
+        Steven<br />
+        Taylor-Wood
+      </h1>
+
+      <div class="hero-bottom">
+
+        <p class="intro">
+          A portfolio of experimental projects exploring electronic music,
+          machine learning, generative systems, audiovisual interaction
+          and creative coding.
+        </p>
+
+        <div class="scroll-indicator">
+          scroll ↓
+        </div>
+
+      </div>
+
     </section>
 
+
+    <!-- PROJECTS -->
     <section id="projects" class="projects">
-      <h2>selected projects</h2>
 
-      <article class="project-card">
-        <span>01</span>
-        <h3>Markov Beat</h3>
-        <p>
-          A real-time MIDI composition system using Markov chains to generate rhythmic
-          and melodic material, built in Max/MSP.
+      <div class="section-heading">
+
+        <h2>selected projects</h2>
+
+        <span>2020 — 2023</span>
+
+      </div>
+
+
+      <!-- PROJECT 01 -->
+      <a
+        class="project-card"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="project-number">
+          01
+        </span>
+
+        <div class="project-title">
+
+          <h3>
+            Markov Beat
+          </h3>
+
+          <p class="meta">
+            Max/MSP / MIDI / Markov Chains
+          </p>
+
+        </div>
+
+        <p class="project-description">
+          A real-time MIDI composition system using higher-order
+          Markov chains to generate rhythmic and melodic material,
+          incorporating swing and groove analysis.
         </p>
-      </article>
 
-      <article class="project-card">
-        <span>02</span>
-        <h3>Uncanny Mirror</h3>
-        <p>
-          An interactive audiovisual installation using machine learning and image
-          translation to distort the viewer’s reflection.
+        <span class="project-arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- PROJECT 02 -->
+      <a
+        class="project-card"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="project-number">
+          02
+        </span>
+
+        <div class="project-title">
+
+          <h3>
+            Uncanny Mirror
+          </h3>
+
+          <p class="meta">
+            TouchDesigner / Machine Learning / Image Translation
+          </p>
+
+        </div>
+
+        <p class="project-description">
+          An interactive audiovisual experiment using machine learning
+          and image translation to transform the viewer's reflection
+          into an uncanny digital double.
         </p>
-      </article>
 
-      <article class="project-card">
-        <span>03</span>
-        <h3>JUCE DJ</h3>
-        <p>
-          A C++/JUCE audio application exploring DJ playback, interface design and
+        <span class="project-arrow">
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- PROJECT 03 -->
+      <a
+        class="project-card"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="project-number">
+          03
+        </span>
+
+        <div class="project-title">
+
+          <h3>
+            JUCE DJ
+          </h3>
+
+          <p class="meta">
+            C++ / JUCE / Audio DSP
+          </p>
+
+        </div>
+
+        <p class="project-description">
+          A desktop audio application exploring DJ playback,
+          waveform interaction, interface design and real-time
           digital audio processing.
         </p>
-      </article>
+
+        <span class="project-arrow">
+          ↗
+        </span>
+
+      </a>
+
     </section>
 
+
+    <!-- ABOUT -->
     <section id="about" class="about">
-      <h2>about</h2>
-      <p>
-        I studied Electronic Music, Computing & Technology at Goldsmiths, combining
-        sound design, programming, creative coding and machine learning. My work sits
-        somewhere between club culture, experimental interfaces and generative systems.
-      </p>
+
+      <div class="section-heading">
+
+        <h2>about</h2>
+
+        <span>Manchester, UK</span>
+
+      </div>
+
+      <div class="about-grid">
+
+        <p class="about-large">
+          I work across sound, code and interactive technology.
+        </p>
+
+        <div class="about-copy">
+
+          <p>
+            I studied Electronic Music, Computing & Technology at
+            Goldsmiths, University of London, combining electronic
+            music production with programming, machine learning,
+            creative coding and digital signal processing.
+          </p>
+
+          <p>
+            My work explores the space between club culture,
+            experimental interfaces, generative systems and
+            emerging creative technologies.
+          </p>
+
+          <div class="skills">
+
+            <span>Max/MSP</span>
+            <span>Python</span>
+            <span>C++</span>
+            <span>JUCE</span>
+            <span>JavaScript</span>
+            <span>TouchDesigner</span>
+            <span>TensorFlow</span>
+            <span>Audio DSP</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </section>
 
+
+    <!-- CONTACT -->
     <section id="contact" class="contact">
-      <h2>contact</h2>
-      <a href="mailto:steetaylorwood@gmail.com">steetaylorwood@gmail.com</a>
+
+      <p class="eyebrow">
+        get in touch
+      </p>
+
+      <a
+        class="email-link"
+        href="mailto:steetaylorwood@gmail.com"
+      >
+        steetaylorwood<br />@gmail.com
+      </a>
+
+      <footer>
+
+        <span>
+          © 2026 Steven Taylor-Wood
+        </span>
+
+        <a href="#top">
+          back to top ↑
+        </a>
+
+      </footer>
+
     </section>
+
   </main>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>

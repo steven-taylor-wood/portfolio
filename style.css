@@ -1,154 +1,693 @@
-/* style.css */
+/* =========================================
+   RESET
+========================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #050505;
   color: #f2f2f2;
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
   overflow-x: hidden;
 }
 
-.noise {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.08;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  z-index: 999;
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: #f2f2f2;
+  color: #050505;
 }
 
-header {
+
+/* =========================================
+   NOISE TEXTURE
+========================================= */
+
+.noise {
   position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.065;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+
+  z-index: 999;
+
+  animation: noiseMove 0.2s steps(2) infinite;
+}
+
+@keyframes noiseMove {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(-2%, 1%);
+  }
+
+  50% {
+    transform: translate(1%, -2%);
+  }
+
+  75% {
+    transform: translate(2%, 2%);
+  }
+
+  100% {
+    transform: translate(-1%, -1%);
+  }
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+  position: fixed;
+
   top: 0;
+  left: 0;
+
   width: 100%;
+
   padding: 24px 40px;
+
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  z-index: 10;
+
+  z-index: 100;
+
   mix-blend-mode: difference;
 }
 
+
 .logo {
-  letter-spacing: 0.2em;
+  color: #f2f2f2;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+
+  letter-spacing: 0.25em;
+
+  font-weight: bold;
 }
+
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
 
 nav a {
   color: #f2f2f2;
+
   text-decoration: none;
-  margin-left: 24px;
-  font-size: 0.8rem;
+
+  font-size: 0.72rem;
+
   text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+
+  transition: opacity 0.2s ease;
 }
+
+
+nav a:hover {
+  opacity: 0.5;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
 
 main {
-  padding: 120px 40px 80px;
+  padding:
+
+    120px
+    clamp(20px, 4vw, 60px)
+    60px;
 }
 
+
+section {
+  margin-bottom: 180px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
 .hero {
-  min-height: 90vh;
+  min-height: calc(100vh - 120px);
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
 }
 
+
 .eyebrow {
-  color: #9f9f9f;
+  color: #858585;
+
   text-transform: uppercase;
+
   letter-spacing: 0.3em;
-  font-size: 0.75rem;
-  margin-bottom: 24px;
+
+  font-size: 0.68rem;
+
+  margin-bottom: 28px;
 }
 
+
 h1 {
-  font-size: clamp(4rem, 14vw, 12rem);
-  line-height: 0.85;
-  letter-spacing: -0.08em;
+  font-size: clamp(4.2rem, 13vw, 13rem);
+
+  line-height: 0.82;
+
+  letter-spacing: -0.085em;
+
   text-transform: uppercase;
-  max-width: 1000px;
+
+  max-width: 1400px;
+
+  transition: transform 0.15s ease-out;
 }
+
+
+.hero-bottom {
+  margin-top: 48px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+}
+
 
 .intro {
   max-width: 580px;
-  margin-top: 32px;
-  color: #bdbdbd;
-  font-size: 1.1rem;
-  line-height: 1.6;
+
+  color: #aaa;
+
+  font-size: 1rem;
+
+  line-height: 1.7;
 }
 
-section {
-  margin-bottom: 140px;
-}
 
-h2 {
-  font-size: 0.9rem;
+.scroll-indicator {
+  color: #666;
+
+  font-size: 0.65rem;
+
   text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: #777;
-  margin-bottom: 32px;
+
+  letter-spacing: 0.2em;
 }
+
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 36px;
+}
+
+
+.section-heading h2 {
+  color: #777;
+
+  font-size: 0.7rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3em;
+}
+
+
+.section-heading span {
+  color: #555;
+
+  font-size: 0.65rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   PROJECT CARDS
+========================================= */
 
 .project-card {
-  border-top: 1px solid #333;
-  padding: 32px 0;
+  color: inherit;
+
+  text-decoration: none;
+
+  border-top: 1px solid #292929;
+
+  padding: 38px 0;
+
   display: grid;
-  grid-template-columns: 80px 1fr 1.4fr;
+
+  grid-template-columns:
+    70px
+    minmax(300px, 1fr)
+    minmax(250px, 0.8fr)
+    40px;
+
   gap: 32px;
-  transition: 0.3s ease;
+
+  align-items: start;
+
+  position: relative;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    padding 0.35s ease;
 }
+
+
+.project-card:last-child {
+  border-bottom: 1px solid #292929;
+}
+
 
 .project-card:hover {
-  background: #f2f2f2;
+  background: #f0f0f0;
+
   color: #050505;
+
   padding-left: 24px;
+
+  padding-right: 24px;
 }
 
-.project-card span {
-  color: #777;
+
+.project-number {
+  color: #666;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.1em;
+
+  padding-top: 10px;
 }
 
-.project-card h3 {
-  font-size: clamp(2rem, 5vw, 5rem);
-  letter-spacing: -0.05em;
+
+.project-title h3 {
+  font-size: clamp(2.2rem, 4.5vw, 5rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -0.06em;
+
   text-transform: uppercase;
 }
 
-.project-card p,
-.about p {
-  color: #bdbdbd;
+
+.meta {
+  color: #666;
+
+  font-size: 0.6rem;
+
+  line-height: 1.6;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+
+  margin-top: 16px;
+
+  transition: color 0.35s ease;
+}
+
+
+.project-description {
+  color: #aaa;
+
   line-height: 1.7;
-  max-width: 700px;
+
+  font-size: 0.9rem;
+
+  transition: color 0.35s ease;
 }
 
-.project-card:hover p {
-  color: #111;
+
+.project-arrow {
+  font-size: 1.5rem;
+
+  opacity: 0;
+
+  transform: translate(-10px, 10px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
-.contact a {
+
+.project-card:hover .project-arrow {
+  opacity: 1;
+
+  transform: translate(0, 0);
+}
+
+
+.project-card:hover .project-description {
+  color: #222;
+}
+
+
+.project-card:hover .meta {
+  color: #555;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 1.2fr 1fr;
+
+  gap: clamp(50px, 10vw, 160px);
+}
+
+
+.about-large {
+  font-size: clamp(2.5rem, 5vw, 6rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.055em;
+
+  max-width: 800px;
+}
+
+
+.about-copy {
+  padding-top: 10px;
+}
+
+
+.about-copy > p {
+  color: #aaa;
+
+  line-height: 1.8;
+
+  margin-bottom: 24px;
+
+  max-width: 600px;
+}
+
+
+/* =========================================
+   SKILLS
+========================================= */
+
+.skills {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 40px;
+}
+
+
+.skills span {
+  border: 1px solid #333;
+
+  border-radius: 100px;
+
+  padding: 8px 14px;
+
+  color: #888;
+
+  font-size: 0.62rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.skills span:hover {
+  background: #f2f2f2;
+
+  color: #050505;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  margin-bottom: 0;
+}
+
+
+.email-link {
   color: #f2f2f2;
-  font-size: clamp(2rem, 6vw, 5rem);
+
   text-decoration: none;
-  letter-spacing: -0.05em;
+
+  font-size: clamp(2.8rem, 8vw, 9rem);
+
+  line-height: 0.9;
+
+  letter-spacing: -0.065em;
+
+  transition: opacity 0.3s ease;
 }
 
-@media (max-width: 800px) {
-  header {
+
+.email-link:hover {
+  opacity: 0.45;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  margin-top: 100px;
+
+  padding-top: 24px;
+
+  border-top: 1px solid #292929;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #555;
+
+  font-size: 0.6rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.15em;
+}
+
+
+footer a {
+  color: #777;
+
+  text-decoration: none;
+}
+
+
+footer a:hover {
+  color: #f2f2f2;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .project-card {
+    grid-template-columns:
+      50px
+      1fr
+      1fr
+      30px;
+  }
+
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .about-copy {
+    max-width: 700px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .site-header {
     padding: 20px;
   }
 
-  main {
-    padding: 100px 20px 60px;
+
+  nav {
+    gap: 12px;
   }
 
+
   nav a {
-    margin-left: 12px;
+    font-size: 0.6rem;
   }
+
+
+  main {
+    padding:
+
+      100px
+      20px
+      40px;
+  }
+
+
+  section {
+    margin-bottom: 120px;
+  }
+
+
+  .hero {
+    min-height: 80vh;
+  }
+
+
+  h1 {
+    font-size: clamp(4rem, 20vw, 7rem);
+  }
+
+
+  .hero-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 30px;
+  }
+
+
+  .scroll-indicator {
+    display: none;
+  }
+
 
   .project-card {
     grid-template-columns: 1fr;
-    gap: 16px;
+
+    gap: 18px;
+
+    padding: 30px 0;
   }
+
+
+  .project-card:hover {
+    padding-left: 16px;
+
+    padding-right: 16px;
+  }
+
+
+  .project-arrow {
+    display: none;
+  }
+
+
+  .project-title h3 {
+    font-size: clamp(2.8rem, 14vw, 5rem);
+  }
+
+
+  .about-large {
+    font-size: clamp(2.8rem, 13vw, 5rem);
+  }
+
+
+  .email-link {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+
+
+  footer {
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
 }
