@@ -7,31 +7,22 @@ document.addEventListener("mousemove", (e) => {
   title.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-
 const projectCards = document.querySelectorAll(".project-card");
 
-
 projectCards.forEach((card) => {
-
   const imageSrc = card.getAttribute("data-preview");
 
-
   card.addEventListener("mouseenter", () => {
-
-    card.style.backgroundImage =
-      `linear-gradient(
-        rgba(5, 5, 5, 0.25),
-        rgba(5, 5, 5, 0.25)
+    card.style.backgroundImage = `
+      linear-gradient(
+        rgba(5, 5, 5, 0.55),
+        rgba(5, 5, 5, 0.55)
       ),
-      url("${imageSrc}")`;
-
+      url("${imageSrc}")
+    `;
   });
-
 
   card.addEventListener("mouseleave", () => {
-
     card.style.backgroundImage = "none";
-
   });
-
 });
