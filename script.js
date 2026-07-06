@@ -7,22 +7,21 @@ document.addEventListener("mousemove", (e) => {
   title.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-const projectCards = document.querySelectorAll(".project-card");
+const themeToggle = document.querySelector(".theme-toggle");
 
-projectCards.forEach((card) => {
-  const imageSrc = card.getAttribute("data-preview");
+const savedTheme = localStorage.getItem("theme");
 
-  card.addEventListener("mouseenter", () => {
-    card.style.backgroundImage = `
-      linear-gradient(
-        rgba(5, 5, 5, 0.55),
-        rgba(5, 5, 5, 0.55)
-      ),
-      url("${imageSrc}")
-    `;
-  });
+if (savedTheme === "light") {
+  document.body.classList.add("light-theme");
+  themeToggle.textContent = "dark";
+}
 
-  card.addEventListener("mouseleave", () => {
-    card.style.backgroundImage = "none";
-  });
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-theme");
+
+  const isLight = document.body.classList.contains("light-theme");
+
+  themeToggle.textContent = isLight ? "dark" : "light";
+
+  localStorage.setItem("theme", isLight ? "light" : "dark");
 });

@@ -12,9 +12,54 @@ html {
   scroll-behavior: smooth;
 }
 
+
+/* =========================================
+   THEME VARIABLES
+========================================= */
+
+:root {
+  --bg: #050505;
+  --text: #f2f2f2;
+
+  --muted: #aaaaaa;
+  --muted-mid: #888888;
+  --muted-dark: #666666;
+
+  --line: #292929;
+  --chip-border: #333333;
+
+  --overlay: rgba(5, 5, 5, 0.55);
+
+  --selection-bg: #f2f2f2;
+  --selection-text: #050505;
+}
+
+
+body.light-theme {
+  --bg: #f2f0eb;
+  --text: #101010;
+
+  --muted: #555555;
+  --muted-mid: #666666;
+  --muted-dark: #777777;
+
+  --line: #d4d0c7;
+  --chip-border: #c4bfb5;
+
+  --overlay: rgba(242, 240, 235, 0.7);
+
+  --selection-bg: #101010;
+  --selection-text: #f2f0eb;
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
 body {
-  background: #050505;
-  color: #f2f2f2;
+  background: var(--bg);
+  color: var(--text);
 
   font-family:
     Arial,
@@ -22,6 +67,10 @@ body {
     sans-serif;
 
   overflow-x: hidden;
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 
@@ -30,8 +79,8 @@ body {
 ========================================= */
 
 ::selection {
-  background: #f2f2f2;
-  color: #050505;
+  background: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 
@@ -55,6 +104,7 @@ body {
 
   animation: noiseMove 0.2s steps(2) infinite;
 }
+
 
 @keyframes noiseMove {
 
@@ -97,7 +147,8 @@ body {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  gap: 30px;
 
   z-index: 100;
 
@@ -115,6 +166,8 @@ body {
   letter-spacing: 0.25em;
 
   font-weight: bold;
+
+  margin-right: auto;
 }
 
 
@@ -145,12 +198,47 @@ nav a:hover {
 
 
 /* =========================================
+   THEME TOGGLE
+========================================= */
+
+.theme-toggle {
+  background: transparent;
+
+  border: 1px solid #f2f2f2;
+
+  color: #f2f2f2;
+
+  padding: 8px 12px;
+
+  font-family: inherit;
+
+  font-size: 0.62rem;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+.theme-toggle:hover {
+  background: #f2f2f2;
+  color: #050505;
+}
+
+
+/* =========================================
    MAIN
 ========================================= */
 
 main {
   padding:
-
     120px
     clamp(20px, 4vw, 60px)
     60px;
@@ -178,7 +266,7 @@ section {
 
 
 .eyebrow {
-  color: #858585;
+  color: var(--muted-mid);
 
   text-transform: uppercase;
 
@@ -219,7 +307,7 @@ h1 {
 .intro {
   max-width: 580px;
 
-  color: #aaa;
+  color: var(--muted);
 
   font-size: 1rem;
 
@@ -228,7 +316,7 @@ h1 {
 
 
 .scroll-indicator {
-  color: #666;
+  color: var(--muted-dark);
 
   font-size: 0.65rem;
 
@@ -254,7 +342,7 @@ h1 {
 
 
 .section-heading h2 {
-  color: #777;
+  color: var(--muted-dark);
 
   font-size: 0.7rem;
 
@@ -265,7 +353,7 @@ h1 {
 
 
 .section-heading span {
-  color: #555;
+  color: var(--muted-dark);
 
   font-size: 0.65rem;
 
@@ -281,9 +369,10 @@ h1 {
 
 .project-card {
   color: inherit;
+
   text-decoration: none;
 
-  border-top: 1px solid #292929;
+  border-top: 1px solid var(--line);
 
   padding: 38px 0;
 
@@ -308,24 +397,28 @@ h1 {
 
   transition:
     padding 0.4s ease,
-    background-position 0.8s ease;
+    background-position 0.8s ease,
+    border-color 0.4s ease;
 }
 
 
 .project-card:last-child {
-  border-bottom: 1px solid #292929;
+  border-bottom: 1px solid var(--line);
 }
 
 
-/* DARK OVERLAY */
+/* =========================================
+   PROJECT IMAGE OVERLAY
+========================================= */
 
 .project-card::before {
   content: "";
 
   position: absolute;
+
   inset: 0;
 
-  background: rgba(5, 5, 5, 0);
+  background: transparent;
 
   backdrop-filter: grayscale(1);
 
@@ -337,11 +430,13 @@ h1 {
 
 
 .project-card:hover::before {
-  background: rgba(5, 5, 5, 0.55);
+  background: var(--overlay);
 }
 
 
-/* KEEP TEXT ABOVE IMAGE */
+/* =========================================
+   KEEP PROJECT TEXT ABOVE IMAGE
+========================================= */
 
 .project-card > * {
   position: relative;
@@ -349,7 +444,9 @@ h1 {
 }
 
 
-/* HOVER MOVEMENT */
+/* =========================================
+   PROJECT HOVER MOVEMENT
+========================================= */
 
 .project-card:hover {
   padding-left: 24px;
@@ -359,8 +456,12 @@ h1 {
 }
 
 
+/* =========================================
+   PROJECT NUMBER
+========================================= */
+
 .project-number {
-  color: #666;
+  color: var(--muted-dark);
 
   font-size: 0.7rem;
 
@@ -371,6 +472,10 @@ h1 {
   transition: color 0.3s ease;
 }
 
+
+/* =========================================
+   PROJECT TITLE
+========================================= */
 
 .project-title h3 {
   font-size: clamp(2.2rem, 4.5vw, 5rem);
@@ -383,8 +488,12 @@ h1 {
 }
 
 
+/* =========================================
+   PROJECT META
+========================================= */
+
 .meta {
-  color: #666;
+  color: var(--muted-dark);
 
   font-size: 0.6rem;
 
@@ -400,8 +509,12 @@ h1 {
 }
 
 
+/* =========================================
+   PROJECT DESCRIPTION
+========================================= */
+
 .project-description {
-  color: #aaa;
+  color: var(--muted);
 
   line-height: 1.7;
 
@@ -410,6 +523,10 @@ h1 {
   transition: color 0.3s ease;
 }
 
+
+/* =========================================
+   PROJECT ARROW
+========================================= */
 
 .project-arrow {
   font-size: 1.5rem;
@@ -424,16 +541,18 @@ h1 {
 }
 
 
-/* HOVER TEXT */
+/* =========================================
+   PROJECT HOVER TEXT
+========================================= */
 
 .project-card:hover .project-number,
 .project-card:hover .meta {
-  color: #bbb;
+  color: var(--text);
 }
 
 
 .project-card:hover .project-description {
-  color: #eee;
+  color: var(--text);
 }
 
 
@@ -474,7 +593,7 @@ h1 {
 
 
 .about-copy > p {
-  color: #aaa;
+  color: var(--muted);
 
   line-height: 1.8;
 
@@ -500,13 +619,13 @@ h1 {
 
 
 .skills span {
-  border: 1px solid #333;
+  border: 1px solid var(--chip-border);
 
   border-radius: 100px;
 
   padding: 8px 14px;
 
-  color: #888;
+  color: var(--muted-mid);
 
   font-size: 0.62rem;
 
@@ -516,14 +635,15 @@ h1 {
 
   transition:
     background 0.25s ease,
-    color 0.25s ease;
+    color 0.25s ease,
+    border-color 0.4s ease;
 }
 
 
 .skills span:hover {
-  background: #f2f2f2;
+  background: var(--text);
 
-  color: #050505;
+  color: var(--bg);
 }
 
 
@@ -545,7 +665,7 @@ h1 {
 
 
 .email-link {
-  color: #f2f2f2;
+  color: var(--text);
 
   text-decoration: none;
 
@@ -555,7 +675,9 @@ h1 {
 
   letter-spacing: -0.065em;
 
-  transition: opacity 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    color 0.4s ease;
 }
 
 
@@ -573,31 +695,35 @@ footer {
 
   padding-top: 24px;
 
-  border-top: 1px solid #292929;
+  border-top: 1px solid var(--line);
 
   display: flex;
 
   justify-content: space-between;
 
-  color: #555;
+  color: var(--muted-dark);
 
   font-size: 0.6rem;
 
   text-transform: uppercase;
 
   letter-spacing: 0.15em;
+
+  transition:
+    border-color 0.4s ease,
+    color 0.4s ease;
 }
 
 
 footer a {
-  color: #777;
+  color: var(--muted-mid);
 
   text-decoration: none;
 }
 
 
 footer a:hover {
-  color: #f2f2f2;
+  color: var(--text);
 }
 
 
@@ -636,6 +762,8 @@ footer a:hover {
 
   .site-header {
     padding: 20px;
+
+    gap: 14px;
   }
 
 
@@ -649,9 +777,15 @@ footer a:hover {
   }
 
 
+  .theme-toggle {
+    padding: 6px 8px;
+
+    font-size: 0.55rem;
+  }
+
+
   main {
     padding:
-
       100px
       20px
       40px;
@@ -729,10 +863,4 @@ footer a:hover {
     gap: 14px;
   }
 
-}
-
-@media (max-width: 700px) {
-  .project-preview {
-    display: none;
-  }
 }
